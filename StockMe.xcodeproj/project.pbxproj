@@ -7,16 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3B17C2382800ADC7000DB220 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17C2372800ADC7000DB220 /* AppDelegate.swift */; };
-		3B17C23A2800ADC7000DB220 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17C2392800ADC7000DB220 /* SceneDelegate.swift */; };
-		3B17C23C2800ADC7000DB220 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17C23B2800ADC7000DB220 /* ViewController.swift */; };
-		3B17C23F2800ADC7000DB220 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B17C23D2800ADC7000DB220 /* Main.storyboard */; };
+		3B17C2382800ADC7000DB220 /* StockMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17C2372800ADC7000DB220 /* StockMeApp.swift */; };
 		3B17C2422800ADC7000DB220 /* StockMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B17C2402800ADC7000DB220 /* StockMe.xcdatamodeld */; };
 		3B17C2442800ADC8000DB220 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B17C2432800ADC8000DB220 /* Assets.xcassets */; };
-		3B17C2472800ADC8000DB220 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B17C2452800ADC8000DB220 /* LaunchScreen.storyboard */; };
 		3B17C2522800ADC8000DB220 /* StockMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17C2512800ADC8000DB220 /* StockMeTests.swift */; };
 		3B17C25C2800ADC8000DB220 /* StockMeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17C25B2800ADC8000DB220 /* StockMeUITests.swift */; };
 		3B17C25E2800ADC8000DB220 /* StockMeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17C25D2800ADC8000DB220 /* StockMeUITestsLaunchTests.swift */; };
+		3B17C2A62800F216000DB220 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17C2A52800F216000DB220 /* Persistence.swift */; };
+		3B17C2A92800F24B000DB220 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B17C2A82800F24B000DB220 /* ContentView.swift */; };
+		3B17C2AB2800F5EE000DB220 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B17C2AA2800F5EE000DB220 /* Preview Assets.xcassets */; };
 		4DCE26614BEB699A90EAC993 /* Pods_StockMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605C59D50E955AC8C197C53D /* Pods_StockMeTests.framework */; };
 		5A59CF1B408A179EEE5D7E76 /* Pods_StockMe_StockMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4C58C87BCBA5298EDA8233 /* Pods_StockMe_StockMeUITests.framework */; };
 		81F9FDF30F1D960E90525538 /* Pods_StockMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230463F787411AAEF6A6341E /* Pods_StockMe.framework */; };
@@ -42,19 +41,17 @@
 /* Begin PBXFileReference section */
 		230463F787411AAEF6A6341E /* Pods_StockMe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockMe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B17C2342800ADC7000DB220 /* StockMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StockMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B17C2372800ADC7000DB220 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3B17C2392800ADC7000DB220 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3B17C23B2800ADC7000DB220 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3B17C23E2800ADC7000DB220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3B17C2372800ADC7000DB220 /* StockMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockMeApp.swift; sourceTree = "<group>"; };
 		3B17C2412800ADC7000DB220 /* StockMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StockMe.xcdatamodel; sourceTree = "<group>"; };
 		3B17C2432800ADC8000DB220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3B17C2462800ADC8000DB220 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		3B17C2482800ADC8000DB220 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B17C24D2800ADC8000DB220 /* StockMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B17C2512800ADC8000DB220 /* StockMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockMeTests.swift; sourceTree = "<group>"; };
 		3B17C2572800ADC8000DB220 /* StockMeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StockMeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B17C25B2800ADC8000DB220 /* StockMeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockMeUITests.swift; sourceTree = "<group>"; };
 		3B17C25D2800ADC8000DB220 /* StockMeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockMeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		3B17C2A52800F216000DB220 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		3B17C2A82800F24B000DB220 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3B17C2AA2800F5EE000DB220 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5E4C58C87BCBA5298EDA8233 /* Pods_StockMe_StockMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockMe_StockMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		605C59D50E955AC8C197C53D /* Pods_StockMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D04CFCF81FEF24F05C7839 /* Pods-StockMe-StockMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockMe-StockMeUITests.release.xcconfig"; path = "Target Support Files/Pods-StockMe-StockMeUITests/Pods-StockMe-StockMeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -118,14 +115,12 @@
 		3B17C2362800ADC7000DB220 /* StockMe */ = {
 			isa = PBXGroup;
 			children = (
-				3B17C2372800ADC7000DB220 /* AppDelegate.swift */,
-				3B17C2392800ADC7000DB220 /* SceneDelegate.swift */,
-				3B17C23B2800ADC7000DB220 /* ViewController.swift */,
-				3B17C23D2800ADC7000DB220 /* Main.storyboard */,
+				3B17C2AC2800F648000DB220 /* Preview Content */,
+				3B17C2A72800F240000DB220 /* View */,
+				3B17C2372800ADC7000DB220 /* StockMeApp.swift */,
 				3B17C2432800ADC8000DB220 /* Assets.xcassets */,
-				3B17C2452800ADC8000DB220 /* LaunchScreen.storyboard */,
-				3B17C2482800ADC8000DB220 /* Info.plist */,
 				3B17C2402800ADC7000DB220 /* StockMe.xcdatamodeld */,
+				3B17C2A52800F216000DB220 /* Persistence.swift */,
 			);
 			path = StockMe;
 			sourceTree = "<group>";
@@ -147,6 +142,22 @@
 			path = StockMeUITests;
 			sourceTree = "<group>";
 		};
+		3B17C2A72800F240000DB220 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3B17C2A82800F24B000DB220 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3B17C2AC2800F648000DB220 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3B17C2AA2800F5EE000DB220 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 		58801135BE46931859C0108F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +168,6 @@
 				B45CA50CEE50FA1D1EDE556B /* Pods-StockMeTests.debug.xcconfig */,
 				BF4C8D5D435D22EB0259124A /* Pods-StockMeTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -278,9 +288,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B17C2472800ADC8000DB220 /* LaunchScreen.storyboard in Resources */,
+				3B17C2AB2800F5EE000DB220 /* Preview Assets.xcassets in Resources */,
 				3B17C2442800ADC8000DB220 /* Assets.xcassets in Resources */,
-				3B17C23F2800ADC7000DB220 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,10 +383,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B17C23C2800ADC7000DB220 /* ViewController.swift in Sources */,
-				3B17C2382800ADC7000DB220 /* AppDelegate.swift in Sources */,
+				3B17C2382800ADC7000DB220 /* StockMeApp.swift in Sources */,
 				3B17C2422800ADC7000DB220 /* StockMe.xcdatamodeld in Sources */,
-				3B17C23A2800ADC7000DB220 /* SceneDelegate.swift in Sources */,
+				3B17C2A92800F24B000DB220 /* ContentView.swift in Sources */,
+				3B17C2A62800F216000DB220 /* Persistence.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,25 +421,6 @@
 			targetProxy = 3B17C2582800ADC8000DB220 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3B17C23D2800ADC7000DB220 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B17C23E2800ADC7000DB220 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3B17C2452800ADC8000DB220 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B17C2462800ADC8000DB220 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3B17C25F2800ADC8000DB220 /* Debug */ = {
@@ -555,14 +545,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"StockMe/Preview Content\"";
 				DEVELOPMENT_TEAM = 62AXUYZ37H;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StockMe/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -584,14 +573,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"StockMe/Preview Content\"";
 				DEVELOPMENT_TEAM = 62AXUYZ37H;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = StockMe/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
