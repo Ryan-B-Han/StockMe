@@ -34,19 +34,10 @@ struct ContentView: View {
                     }
                 }.padding()
                 
-                Button("Searech") {
-                    Symbol.request(keywords: "TSC") { error, symbols in
-                        dLog(error)
-                        guard let symbols = symbols else {
-                            return
-                        }
-                        dLog(symbols.count)
-                        guard let first = symbols.first else {
-                            return
-                        }
-                        dLog(first.symbol, first.name, first.matchScore)
-                    }
-                }.padding()
+                NavigationLink("Search View") {
+                    SearchView()
+                }
+                .padding(10)
                 
                 NavigationLink("Apple SignIn") {
                     SignInView()
