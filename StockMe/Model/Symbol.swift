@@ -9,7 +9,8 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-struct Symbol {
+struct Symbol: Identifiable {
+    let id = UUID()
     let symbol: String
     var name: String
     var type: String
@@ -45,9 +46,16 @@ extension Symbol {
         .responseData { response in
             switch response.result {
             case .failure(let error):
+                dLog(error)
                 completionHandler(error, nil)
             case .success(let data):
                 let json = JSON(data)
+                if let note = json["Note"].string {
+                    let error = NSError(domain: note, code: -1)
+                    completionHandler(error, nil)
+                    return
+                }
+                
                 var symbols:[Symbol] = []
                 for item in json["bestMatches"].arrayValue {
                     let symbol = Symbol(json: item)
