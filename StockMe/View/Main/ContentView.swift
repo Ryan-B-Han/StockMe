@@ -18,27 +18,44 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+            VStack {
+                Button("Fetch") {
+                    Series.request(symbol: "IBM", function: .weekly) { error, series in
+                        dLog(error)
+                        guard let series = series else {
+                            return
+                        }
+
+                        dLog(series.meta.symbol, series.meta.updatedAt, series.meta.timezone)
+                        dLog(series.records.count)
+                        
+                        guard let first = series.records.first else { return }
+                        dLog(first.date, first.high, first.low, first.close, first.volume)
                     }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                }.padding()
+                
+                Button("Searech") {
+                    Symbol.request(keywords: "TSC") { error, symbols in
+                        dLog(error)
+                        guard let symbols = symbols else {
+                            return
+                        }
+                        dLog(symbols.count)
+                        guard let first = symbols.first else {
+                            return
+                        }
+                        dLog(first.symbol, first.name, first.matchScore)
                     }
+                }.padding()
+                
+                NavigationLink("Apple SignIn") {
+                    SignInView()
                 }
+                .padding(10)
+                
+                Spacer()
             }
-            Text("Select an item")
+            .navigationTitle("Main")
         }
     }
 
