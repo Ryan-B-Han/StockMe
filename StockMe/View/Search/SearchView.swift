@@ -18,8 +18,11 @@ struct SearchView: View {
                 .padding()
             
             List($viewModel.symbols, id: \.id) { symbol in
-                VStack {
-                    Text(symbol.name.wrappedValue)
+                NavigationLink {
+                    DetailView(viewModel: DetailViewModel(symbol: symbol.wrappedValue))
+                } label: {
+                    SymbolView(symbol: symbol.wrappedValue)
+                    
                 }
             }
         }

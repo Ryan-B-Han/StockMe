@@ -15,7 +15,7 @@ struct Series {
 }
 
 extension Series {
-    static func request(symbol: String, function: Function, completionHandler: @escaping (_ error: Error?, _ series: Series?) -> Void) {
+    static func request(symbol: String, function: TimeSeries, completionHandler: @escaping (_ error: Error?, _ series: Series?) -> Void) {
         Session.default.request(APIManager.url,
                                 method: .get,
                                 parameters: ["function": function.rawValue,
@@ -41,7 +41,7 @@ extension Series {
         }
     }
     
-    enum Function: String {
+    enum TimeSeries: String {
         case daily = "TIME_SERIES_DAILY"
         case weekly = "TIME_SERIES_WEEKLY"
         case monthly = "TIME_SERIES_MONTHLY"

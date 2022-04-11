@@ -8,7 +8,8 @@
 import Foundation
 import SwiftyJSON
 
-struct Record {
+struct Record: Identifiable {
+    let id = UUID()
     let date: String
     let open: String
     let high: String
