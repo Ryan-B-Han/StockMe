@@ -30,6 +30,7 @@
 		3B2107BF280399F600D08B28 /* SymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2107BE280399F600D08B28 /* SymbolView.swift */; };
 		3B2107C128039AF100D08B28 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2107C028039AF100D08B28 /* DetailViewModel.swift */; };
 		3B2107C4280480BC00D08B28 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2107C3280480BC00D08B28 /* DetailView.swift */; };
+		3B2F895028049B4C00ACB2FA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B2F894F28049B4C00ACB2FA /* User.swift */; };
 		4DCE26614BEB699A90EAC993 /* Pods_StockMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605C59D50E955AC8C197C53D /* Pods_StockMeTests.framework */; };
 		5A59CF1B408A179EEE5D7E76 /* Pods_StockMe_StockMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4C58C87BCBA5298EDA8233 /* Pods_StockMe_StockMeUITests.framework */; };
 		81F9FDF30F1D960E90525538 /* Pods_StockMe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 230463F787411AAEF6A6341E /* Pods_StockMe.framework */; };
@@ -81,6 +82,7 @@
 		3B2107BE280399F600D08B28 /* SymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymbolView.swift; sourceTree = "<group>"; };
 		3B2107C028039AF100D08B28 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		3B2107C3280480BC00D08B28 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		3B2F894F28049B4C00ACB2FA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5E4C58C87BCBA5298EDA8233 /* Pods_StockMe_StockMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockMe_StockMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		605C59D50E955AC8C197C53D /* Pods_StockMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		73D04CFCF81FEF24F05C7839 /* Pods-StockMe-StockMeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StockMe-StockMeUITests.release.xcconfig"; path = "Target Support Files/Pods-StockMe-StockMeUITests/Pods-StockMe-StockMeUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 				3B2107AB280350C300D08B28 /* Meta.swift */,
 				3B2107AD280350F400D08B28 /* Series.swift */,
 				3B2107AF28036E8A00D08B28 /* Symbol.swift */,
+				3B2F894F28049B4C00ACB2FA /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				3B2107B72803730000D08B28 /* Dictionary+.swift in Sources */,
 				3B2107AC280350C300D08B28 /* Meta.swift in Sources */,
 				3B21079B2800FC2100D08B28 /* SignInView.swift in Sources */,
+				3B2F895028049B4C00ACB2FA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

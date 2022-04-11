@@ -5,20 +5,38 @@
 //  Created by BYUNGKI HAN on 4/8/22.
 //
 
+/***
+ This featur must be tested on a real device. The sign-in doesn't work on a simulator
+ https://developer.apple.com/forums/thread/651533
+ ***/
+
+
 import SwiftUI
 import AuthenticationServices
 
 struct SignInView: View {
-    @State var viewModel = SignInViewModel()
+    @StateObject var viewModel = SignInViewModel()
     
     var body: some View {
         VStack {
+            if($viewModel.validate.wrappedValue) {
+                Text(User.current!.id)
+                Text(User.current!.fullname)
+                Text(User.current!.email)
+            }
+            
             Spacer()
             
-            SignInWithApple()
-                .frame(height: 44)
-                .padding(20)
-                .onTapGesture(perform: viewModel.requestAppleSignIn)
+            if(!$viewModel.validate.wrappedValue) {
+                SignInWithApple()
+                    .frame(height: 44)
+                    .padding(20)
+                    .onTapGesture(perform: viewModel.requestAppleSignIn)
+            }
+        }
+        .onAppear {
+            dLog()
+            viewModel.validateUserCredential()
         }
     }
 }
