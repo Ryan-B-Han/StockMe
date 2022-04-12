@@ -8,29 +8,31 @@
 import SwiftUI
 
 struct StockView: View {
-    @ObservedObject var viewModel: StockViewModel
+    let stock: Stock
+    @ObservedObject var db = DBManager.shared
     
     init(stock: Stock) {
-        self.viewModel = StockViewModel(stock: stock)
+        self.stock = stock
     }
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(viewModel.stock.symbol)
+                Text(stock.symbol)
                     .fontWeight(.semibold)
                     .font(.title2)
-                Text(viewModel.stock.name)
+                Text(stock.name)
                     .font(.subheadline)
-                Text(viewModel.stock.region + " / " + viewModel.stock.timezone)
-                Text(viewModel.stock.marketOpen + " - " + viewModel.stock.marketClose)
+                Text(stock.region + " / " + stock.timezone)
+                Text(stock.marketOpen + " - " + stock.marketClose)
             }
             
             Spacer()
             
-            Image(systemName: viewModel.isFavorite ? "star.fill" : "star")
+            Image(systemName: db.favorite[stock.symbol] == true ? "star.fill" : "star")
                 .onTapGesture {
-                    viewModel.isFavorite = !viewModel.isFavorite
+                    let isFavorite = db.favorite[stock.symbol] ?? false
+                    db.favorite[stock.symbol] = !isFavorite
                 }
         }
     }
