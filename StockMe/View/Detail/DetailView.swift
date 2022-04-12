@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct DetailView: View {
-    @StateObject var viewModel: DetailViewModel
+    @ObservedObject var viewModel: DetailViewModel
+    
+    init(stock: Stock) {
+        viewModel = DetailViewModel(stock: stock)
+    }
     
     var body: some View {
         VStack {
-            SymbolView(symbol: $viewModel.symbol.wrappedValue)
+            StockView(stock: viewModel.stock)
             
             Picker("TimeSeries", selection: $viewModel.state) {
                 Text("Daily").tag(Series.TimeSeries.daily)
@@ -31,7 +35,7 @@ struct DetailView: View {
             
             Spacer()
         }
-        .navigationTitle(viewModel.symbol.name)
+//        .navigationTitle(viewModel.symbol.name)
         .onAppear {
             dLog()
             viewModel.fetch()

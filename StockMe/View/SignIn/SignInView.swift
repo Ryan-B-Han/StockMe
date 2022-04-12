@@ -27,7 +27,7 @@ struct SignInView: View {
             
             Spacer()
             
-            if(!$viewModel.validate.wrappedValue) {
+            if($viewModel.validate.wrappedValue == false) {
                 SignInWithApple()
                     .frame(height: 44)
                     .padding(20)

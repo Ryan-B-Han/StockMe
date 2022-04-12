@@ -1,5 +1,5 @@
 //
-//  Symbol.swift
+//  Stock.swift
 //  StockMe
 //
 //  Created by BYUNGKI HAN on 4/10/22.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-struct Symbol: Identifiable {
+struct Stock: Identifiable {
     let id = UUID()
     let symbol: String
     var name: String
@@ -35,8 +35,8 @@ struct Symbol: Identifiable {
     }
 }
 
-extension Symbol {
-    static func request(keywords: String, completionHandler: @escaping (_ error: Error?, _ symbols: [Symbol]?) -> Void) {
+extension Stock {
+    static func request(keywords: String, completionHandler: @escaping (_ error: Error?, _ stocks: [Stock]?) -> Void) {
         Session.default.request(APIManager.url,
                                 method: .get,
                                 parameters: ["function": "SYMBOL_SEARCH",
@@ -56,13 +56,13 @@ extension Symbol {
                     return
                 }
                 
-                var symbols:[Symbol] = []
+                var stocks: [Stock] = []
                 for item in json["bestMatches"].arrayValue {
-                    let symbol = Symbol(json: item)
-                    symbols.append(symbol)
+                    let stock = Stock(json: item)
+                    stocks.append(stock)
                 }
                 
-                completionHandler(nil, symbols)
+                completionHandler(nil, stocks)
             }
         }
     }
