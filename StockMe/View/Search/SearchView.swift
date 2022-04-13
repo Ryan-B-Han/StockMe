@@ -17,15 +17,28 @@ struct SearchView: View {
                 .padding()
                 .textFieldStyle(.roundedBorder)
             
-            List($viewModel.stocks, id: \.id) { stock in
-                NavigationLink {
-                    DetailView(stock: stock.wrappedValue)
-                } label: {
-                    StockView(stock: stock.wrappedValue)
+            if $viewModel.stocks.count == 0 {
+                Spacer()
+                Text("Empty")
+                    .font(.largeTitle)
+                Spacer()
+                
+            } else {
+                List($viewModel.stocks, id: \.id) { stock in
+                    NavigationLink {
+                        DetailView(stock: stock.wrappedValue)
+                    } label: {
+                        StockView(stock: stock.wrappedValue)
+                    }
                 }
+                
             }
+            
         }
         .navigationTitle("Search")
+        .alert(($viewModel.error.wrappedValue as? NSError)?.localizedFailureReason ?? "Error", isPresented: $viewModel.showAlert) {
+            Button("OK", role: .cancel) { }
+        }
     }
 }
 

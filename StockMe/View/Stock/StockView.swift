@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct StockView: View {
     let stock: Stock
@@ -13,6 +14,10 @@ struct StockView: View {
     
     init(stock: Stock) {
         self.stock = stock
+    }
+    
+    init(favorite: Favorite) {
+        self.stock = Stock(favorite: favorite)
     }
     
     var body: some View {

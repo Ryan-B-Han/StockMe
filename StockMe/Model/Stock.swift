@@ -8,6 +8,7 @@
 import Foundation
 import SwiftyJSON
 import Alamofire
+import CoreData
 
 struct Stock: Identifiable, Codable {
     var id = UUID()
@@ -33,6 +34,19 @@ struct Stock: Identifiable, Codable {
         currency = dic["currency"]?.stringValue ?? ""
         matchScore = dic["matchScore"]?.stringValue ?? ""
     }
+    
+    init(favorite: Favorite) {
+        symbol = favorite.symbol!
+        name = favorite.name!
+        type = favorite.type!
+        region = favorite.region!
+        marketOpen = favorite.marketOpen!
+        marketClose = favorite.marketClose!
+        timezone = favorite.timezone!
+        currency = favorite.currency!
+        matchScore = favorite.matchScore!
+        
+    }
 }
 
 extension Stock {
@@ -46,12 +60,11 @@ extension Stock {
         .responseData { response in
             switch response.result {
             case .failure(let error):
-                dLog(error)
                 completionHandler(error, nil)
             case .success(let data):
                 let json = JSON(data)
                 if let note = json["Note"].string {
-                    let error = NSError(domain: note, code: -1)
+                    let error = NSError(domain: "stockme", code: -1, userInfo: [NSLocalizedFailureReasonErrorKey: note])
                     completionHandler(error, nil)
                     return
                 }

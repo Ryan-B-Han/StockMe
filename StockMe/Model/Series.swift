@@ -28,6 +28,12 @@ extension Series {
                 completionHandler(error, nil)
             case .success(let data):
                 let json = JSON(data)
+                if let note = json["Note"].string {
+                    let error = NSError(domain: "stockme", code: -1, userInfo: [NSLocalizedFailureReasonErrorKey: note])
+                    completionHandler(error, nil)
+                    return
+                }
+                
                 let meta = Meta(json: json["Meta Data"])
                 var records: [Record] = []
                 for (key, value) in json[function.key].dictionaryValue {

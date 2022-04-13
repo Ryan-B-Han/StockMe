@@ -13,26 +13,22 @@ struct FavoriteView: View {
     
     var body: some View {
         VStack {
-            List($db.favorites, id: \.id) { fav in
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(fav.wrappedValue.symbol ?? "")
-                            .fontWeight(.semibold)
-                            .font(.title2)
-                        Text(fav.wrappedValue.name ?? "")
-                            .font(.subheadline)
-                        Text((fav.wrappedValue.region ?? "") + " / " + (fav.wrappedValue.timezone ?? ""))
-                        Text((fav.wrappedValue.marketOpen ?? "") + " - " + (fav.wrappedValue.marketClose ?? ""))
+            if $db.favorites.count == 0 {
+                Spacer()
+                Text("Empty")
+                    .font(.largeTitle)
+                Spacer()
+                
+            } else {
+                List($db.favorites, id: \.id) { fav in
+                    let stock = Stock(favorite: fav.wrappedValue)
+                    NavigationLink {
+                        DetailView(stock: stock)
+                    } label: {
+                        StockView(stock: stock)
                     }
-                    
-                    Spacer()
-                    
-                    Image(systemName: "star.fill")
-                        .onTapGesture {
-                            guard let user = User.current else { return }
-                            db.removeFavorite(user: user, favorite: fav.wrappedValue)
-                        }
                 }
+                
             }
         }
         .navigationTitle("Favorite")
