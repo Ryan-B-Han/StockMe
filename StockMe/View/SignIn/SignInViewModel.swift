@@ -9,11 +9,7 @@ import Foundation
 import AuthenticationServices
 
 class SignInViewModel: NSObject, ObservableObject {
-    @Published var validate: Bool = false {
-        didSet {
-            dLog(validate)
-        }
-    }
+    @Published var validate: Bool = false
     
     func requestAppleSignIn() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
@@ -26,12 +22,9 @@ class SignInViewModel: NSObject, ObservableObject {
     
     func validateUserCredential() {
         guard let current = User.current else {
-            dLog()
             validate = false
             return
         }
-        
-        dLog(current.id)
         
         ASAuthorizationAppleIDProvider().getCredentialState(forUserID: current.id) { [weak self] (credentialState, error) in
             DispatchQueue.main.async {

@@ -19,21 +19,6 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Button("Fetch") {
-                    Series.request(symbol: "IBM", function: .weekly) { error, series in
-                        dLog(error)
-                        guard let series = series else {
-                            return
-                        }
-
-                        dLog(series.meta.symbol, series.meta.updatedAt, series.meta.timezone)
-                        dLog(series.records.count)
-                        
-                        guard let first = series.records.first else { return }
-                        dLog(first.date, first.high, first.low, first.close, first.volume)
-                    }
-                }.padding()
-                
                 NavigationLink("Search View") {
                     SearchView()
                 }
@@ -41,6 +26,11 @@ struct ContentView: View {
                 
                 NavigationLink("Apple SignIn") {
                     SignInView()
+                }
+                .padding(10)
+                
+                NavigationLink("Favorite View") {
+                    FavoriteView()
                 }
                 .padding(10)
                 

@@ -8,7 +8,7 @@
 import SwiftUI
 
 class DetailViewModel: ObservableObject {
-    var symbol: Symbol
+    var stock: Stock
     private var series: Series?
     @Published var records: [Record] = []
     @Published var state: Series.TimeSeries = .daily {
@@ -18,14 +18,14 @@ class DetailViewModel: ObservableObject {
     }
     @Published var isLoading: Bool = false
     
-    init(symbol: Symbol) {
-        self.symbol = symbol
+    init(stock: Stock) {
+        self.stock = stock
     }
     
     func fetch() {
         dLog()
         isLoading = true
-        Series.request(symbol: symbol.symbol, function: state) { [weak self] error, series in
+        Series.request(symbol: stock.symbol, function: state) { [weak self] error, series in
             guard let self = self else { return }
             dLog(error, series)
             self.isLoading = false

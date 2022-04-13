@@ -11,21 +11,21 @@ class SearchViewModel: ObservableObject {
     var searchText: String = "" {
         didSet {
             guard searchText.count > 0 else {
-                symbols = []
+                stocks = []
                 return
             }
             
-            Symbol.request(keywords: searchText) { error, symbols in
-                dLog(error)
-                guard let symbols = symbols else {
-                    self.symbols = []
+            Stock.request(keywords: searchText) { error, stocks in
+                dLog("error = ", error, "search = ", stocks?.count)
+                guard let stocks = stocks else {
+                    self.stocks = []
                     return
                 }
 
-                self.symbols = symbols
+                self.stocks = stocks
             }
         }
     }
     
-    @Published var symbols: [Symbol] = []
+    @Published var stocks: [Stock] = []
 }

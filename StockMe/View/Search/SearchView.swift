@@ -14,15 +14,14 @@ struct SearchView: View {
     var body: some View {
         VStack {
             TextField("Symbol", text: $viewModel.searchText)
-                .frame(height: 50)
                 .padding()
+                .textFieldStyle(.roundedBorder)
             
-            List($viewModel.symbols, id: \.id) { symbol in
+            List($viewModel.stocks, id: \.id) { stock in
                 NavigationLink {
-                    DetailView(viewModel: DetailViewModel(symbol: symbol.wrappedValue))
+                    DetailView(stock: stock.wrappedValue)
                 } label: {
-                    SymbolView(symbol: symbol.wrappedValue)
-                    
+                    StockView(stock: stock.wrappedValue)
                 }
             }
         }
