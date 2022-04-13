@@ -1,0 +1,6 @@
+framework module Pods_StockMe_StockMeUITests {
+  umbrella header "Pods-StockMe-StockMeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
