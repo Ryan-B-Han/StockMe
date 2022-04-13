@@ -16,7 +16,8 @@ struct StockMeApp: App {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .onAppear {
-                    DBManager.shared.refresh()
+                    guard let user = User.current else { return }
+                    DBManager.shared.load(user: user)
                 }
         }
     }

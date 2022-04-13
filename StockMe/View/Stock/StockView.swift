@@ -29,10 +29,15 @@ struct StockView: View {
             
             Spacer()
             
-            let isFavorite = db.favorite[stock.symbol] != nil
+            let isFavorite = db.favoritesDictionary[stock.symbol] != nil
             Image(systemName: isFavorite ? "star.fill" : "star")
                 .onTapGesture {
-                    db.favorite[stock.symbol] = isFavorite ? nil : stock
+                    guard let user = User.current else { return }
+                    if isFavorite {
+                        db.removeFavorite(user: user, stock: stock)
+                    } else {
+                        db.addFavorite(user: user, stock: stock)
+                    }
                 }
         }
     }

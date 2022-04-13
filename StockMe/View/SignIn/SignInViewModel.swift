@@ -44,7 +44,9 @@ class SignInViewModel: NSObject, ObservableObject {
 extension SignInViewModel: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
-        User.current = User(credential: credential)
+        let user = User(credential: credential)
+        User.current = user
+        DBManager.shared.load(user: user)
         validate = true
     }
 
