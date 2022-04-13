@@ -16,43 +16,35 @@ import AuthenticationServices
 
 struct SignInView: View {
     @StateObject var viewModel = SignInViewModel()
+    @Environment(\.colorScheme) var colorScheme
     
     var body: some View {
         VStack {
-            if($viewModel.validate.wrappedValue) {
-                Text(User.current!.id)
-                Text(User.current!.fullname)
-                Text(User.current!.email)
-            }
+            Text("StockMe!")
+                .font(.largeTitle)
+                .accentColor(.red)
+                .padding(30)
             
             Spacer()
-            
-            if($viewModel.validate.wrappedValue == false) {
-                SignInWithApple()
-                    .frame(height: 44)
-                    .padding(20)
-                    .onTapGesture(perform: viewModel.requestAppleSignIn)
+            SignInWithAppleButton { request in
+                request.requestedScopes = [.fullName, .email]
+                
+            } onCompletion: { result in
+                switch result {
+                case .failure(let error):
+                    dLog(error)
+                    
+                case .success(let authorization):
+                    guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else { return }
+                    let user = User(credential: credential)
+                    UserManager.shared.current = user
+                    DBManager.shared.load(user: user)
+                    
+                }
             }
+            .signInWithAppleButtonStyle(colorScheme == .dark ? .white : .black)
+            .frame(height: 48)
+            .padding(40)
         }
-        .onAppear {
-            dLog()
-            viewModel.validateUserCredential()
-        }
-    }
-}
-
-final class SignInWithApple: UIViewRepresentable {
-    func makeUIView(context: Context) -> ASAuthorizationAppleIDButton {
-        return ASAuthorizationAppleIDButton()
-    }
-      
-    func updateUIView(_ uiView: ASAuthorizationAppleIDButton, context: Context) {
-          
-    }
-}
-
-struct SignInView_Previews: PreviewProvider {
-    static var previews: some View {
-        SignInView()
     }
 }

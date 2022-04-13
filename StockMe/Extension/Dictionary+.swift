@@ -9,6 +9,7 @@ import Foundation
 import SwiftyJSON
 
 extension Dictionary where Key == String, Value == JSON {
+    // rename key from 1. XXX to XXX
     func keyOrganized() -> Dictionary<String, JSON> {
         var organized: Dictionary<String, JSON> = [:]
         for key in keys {

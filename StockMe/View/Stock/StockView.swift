@@ -37,7 +37,7 @@ struct StockView: View {
             let isFavorite = db.favoritesDictionary[stock.symbol] != nil
             Image(systemName: isFavorite ? "star.fill" : "star")
                 .onTapGesture {
-                    guard let user = User.current else { return }
+                    guard let user = UserManager.shared.current else { return }
                     if isFavorite {
                         db.removeFavorite(user: user, stock: stock)
                     } else {
