@@ -16,7 +16,7 @@ class SearchViewModel: ObservableObject {
             }
             
             Stock.request(keywords: searchText) { error, stocks in
-                dLog(error)
+                dLog("error = ", error, "search = ", stocks?.count)
                 guard let stocks = stocks else {
                     self.stocks = []
                     return

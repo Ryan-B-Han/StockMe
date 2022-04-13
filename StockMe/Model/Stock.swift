@@ -9,8 +9,8 @@ import Foundation
 import SwiftyJSON
 import Alamofire
 
-struct Stock: Identifiable {
-    let id = UUID()
+struct Stock: Identifiable, Codable {
+    var id = UUID()
     let symbol: String
     var name: String
     var type: String

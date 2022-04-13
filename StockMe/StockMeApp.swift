@@ -15,6 +15,9 @@ struct StockMeApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .onAppear {
+                    DBManager.shared.refresh()
+                }
         }
     }
 }

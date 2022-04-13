@@ -12,17 +12,38 @@ import SwiftUI
 class DBManager: ObservableObject {
     static let shared = DBManager()
     
-    @Published var favorite: [String: Bool] = UserDefaults.standard.object(forKey: "favorite") as? [String: Bool] ?? [:] {
+    @Published var favorite: [String: Stock] = DBManager.load() {
         didSet {
-            UserDefaults.standard.set(favorite, forKey: "favorite")
+            DBManager.store(favorite: favorite)
+            favoriteList = favorite.values.compactMap({ $0 })
         }
     }
     
-//    func set(symbol: String, isFavorite: Bool) {
-//        favorite[symbol] = isFavorite
-//    }
-//
-//    func isFavorite(symbol: String) -> Bool {
-//        return favorite[symbol] ?? false
-//    }
+    @Published var favoriteList: [Stock] = []
+    
+    func refresh() {
+        favorite = DBManager.load()
+    }
+    
+    private static func load() -> [String: Stock] {
+        guard let data = UserDefaults.standard.object(forKey: "favorite") as? Data else { return [:] }
+        let decoder = JSONDecoder()
+        do {
+            let result = try decoder.decode([String:Stock].self, from: data)
+            return result
+        } catch {
+            dLog(error)
+            return [:]
+        }
+    }
+    
+    private static func store(favorite: [String: Stock]) {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(favorite)
+            UserDefaults.standard.set(data, forKey: "favorite")
+        } catch {
+            dLog(error)
+        }
+    }
 }

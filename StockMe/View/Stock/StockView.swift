@@ -29,10 +29,10 @@ struct StockView: View {
             
             Spacer()
             
-            Image(systemName: db.favorite[stock.symbol] == true ? "star.fill" : "star")
+            let isFavorite = db.favorite[stock.symbol] != nil
+            Image(systemName: isFavorite ? "star.fill" : "star")
                 .onTapGesture {
-                    let isFavorite = db.favorite[stock.symbol] ?? false
-                    db.favorite[stock.symbol] = !isFavorite
+                    db.favorite[stock.symbol] = isFavorite ? nil : stock
                 }
         }
     }

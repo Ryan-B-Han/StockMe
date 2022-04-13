@@ -14,8 +14,8 @@ struct SearchView: View {
     var body: some View {
         VStack {
             TextField("Symbol", text: $viewModel.searchText)
-                .frame(height: 50)
                 .padding()
+                .textFieldStyle(.roundedBorder)
             
             List($viewModel.stocks, id: \.id) { stock in
                 NavigationLink {
