@@ -33,6 +33,7 @@
 		3B3AD3AC2804E5D0007555EB /* StockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AD3AB2804E5D0007555EB /* StockViewModel.swift */; };
 		3B3AD3AE28052F9C007555EB /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AD3AD28052F9C007555EB /* DBManager.swift */; };
 		3B3AD3B028053E25007555EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AD3AF28053E25007555EB /* User.swift */; };
+		3B957D8A28072E5B002814FD /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B957D8928072E5B002814FD /* UserManager.swift */; };
 		3BBBF28B2806231C00AF439C /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBBF28A2806231C00AF439C /* FavoriteView.swift */; };
 		4DCE26614BEB699A90EAC993 /* Pods_StockMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605C59D50E955AC8C197C53D /* Pods_StockMeTests.framework */; };
 		5A59CF1B408A179EEE5D7E76 /* Pods_StockMe_StockMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4C58C87BCBA5298EDA8233 /* Pods_StockMe_StockMeUITests.framework */; };
@@ -88,6 +89,7 @@
 		3B3AD3AB2804E5D0007555EB /* StockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockViewModel.swift; sourceTree = "<group>"; };
 		3B3AD3AD28052F9C007555EB /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		3B3AD3AF28053E25007555EB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3B957D8928072E5B002814FD /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		3BBBF28A2806231C00AF439C /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		5E4C58C87BCBA5298EDA8233 /* Pods_StockMe_StockMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockMe_StockMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		605C59D50E955AC8C197C53D /* Pods_StockMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,13 +154,12 @@
 		3B17C2362800ADC7000DB220 /* StockMe */ = {
 			isa = PBXGroup;
 			children = (
-				3B2107B128036F6800D08B28 /* Extension */,
 				3B17C2432800ADC8000DB220 /* Assets.xcassets */,
 				3B17C2372800ADC7000DB220 /* StockMeApp.swift */,
-				3B17C2A52800F216000DB220 /* Persistence.swift */,
 				3B17C2A72800F240000DB220 /* View */,
 				3B2107A628033AB400D08B28 /* Model */,
 				3B2107A2280338DC00D08B28 /* Module */,
+				3B2107B128036F6800D08B28 /* Extension */,
 				3B17C2AC2800F648000DB220 /* Preview Content */,
 				3B2107A12803383E00D08B28 /* StockMe.entitlements */,
 				3B17C2402800ADC7000DB220 /* StockMe.xcdatamodeld */,
@@ -186,12 +187,12 @@
 		3B17C2A72800F240000DB220 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				3BBBF2892806231200AF439C /* Favorite */,
-				3B2107C22804809C00D08B28 /* Stock */,
 				3B2107BD280399E500D08B28 /* Detail */,
-				3B2107BA2803798100D08B28 /* Search */,
+				3BBBF2892806231200AF439C /* Favorite */,
 				3B2107A52803397E00D08B28 /* Main */,
+				3B2107BA2803798100D08B28 /* Search */,
 				3B21079C2802874B00D08B28 /* SignIn */,
+				3B2107C22804809C00D08B28 /* Stock */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,9 +217,11 @@
 		3B2107A2280338DC00D08B28 /* Module */ = {
 			isa = PBXGroup;
 			children = (
-				3B2107A3280338F200D08B28 /* dLog.swift */,
 				3B2107A728033B5C00D08B28 /* APIManager.swift */,
 				3B3AD3AD28052F9C007555EB /* DBManager.swift */,
+				3B2107A3280338F200D08B28 /* dLog.swift */,
+				3B17C2A52800F216000DB220 /* Persistence.swift */,
+				3B957D8928072E5B002814FD /* UserManager.swift */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -234,11 +237,11 @@
 		3B2107A628033AB400D08B28 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3B3AD3AF28053E25007555EB /* User.swift */,
-				3B2107A928033DDA00D08B28 /* Record.swift */,
 				3B2107AB280350C300D08B28 /* Meta.swift */,
+				3B2107A928033DDA00D08B28 /* Record.swift */,
 				3B2107AD280350F400D08B28 /* Series.swift */,
 				3B2107AF28036E8A00D08B28 /* Stock.swift */,
+				3B3AD3AF28053E25007555EB /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -554,6 +557,7 @@
 				3B2107C128039AF100D08B28 /* DetailViewModel.swift in Sources */,
 				3B2107AA28033DDA00D08B28 /* Record.swift in Sources */,
 				3B2107A0280334E000D08B28 /* SignInViewModel.swift in Sources */,
+				3B957D8A28072E5B002814FD /* UserManager.swift in Sources */,
 				3B17C2422800ADC7000DB220 /* StockMe.xcdatamodeld in Sources */,
 				3B2107B028036E8A00D08B28 /* Stock.swift in Sources */,
 				3B2107BC28037B7500D08B28 /* SearchViewModel.swift in Sources */,

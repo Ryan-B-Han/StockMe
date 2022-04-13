@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 
-class DBManager: ObservableObject {
+final class DBManager: ObservableObject {
     static let shared = DBManager()
     
     @Published var favorites: [Favorite] = [] {

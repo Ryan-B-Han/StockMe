@@ -14,10 +14,13 @@ struct StockMeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .onAppear {
-                    guard let user = User.current else { return }
-                    DBManager.shared.load(user: user)
+                    // Load stored User and validate
+                    UserManager.shared.load {
+                        guard let user = UserManager.shared.current else { return }
+                        // Load favorite list of the user
+                        DBManager.shared.load(user: user)
+                    }
                 }
         }
     }

@@ -9,67 +9,25 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
+    @ObservedObject var userManager = UserManager.shared
+    
     var body: some View {
-        NavigationView {
-            VStack {
-                NavigationLink("Search View") {
-                    SearchView()
-                }
-                .padding(10)
-                
-                NavigationLink("Apple SignIn") {
-                    SignInView()
-                }
-                .padding(10)
-                
-                NavigationLink("Favorite View") {
-                    FavoriteView()
-                }
-                .padding(10)
-                
-                Spacer()
+        if $userManager.current.wrappedValue == nil {
+            SignInView()
+            
+        } else {
+            NavigationView {
+                SearchView()
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarTrailing, content: {
+                            NavigationLink {
+                                FavoriteView()
+                            } label: {
+                                Text("Favorite")
+                            }
+                        })
+                    }
             }
-            .navigationTitle("Main")
         }
     }
-
-//    private func addItem() {
-//        withAnimation {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
-
-//    private func deleteItems(offsets: IndexSet) {
-//        withAnimation {
-//            offsets.map { items[$0] }.forEach(viewContext.delete)
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
 }
-
-//private let itemFormatter: DateFormatter = {
-//    let formatter = DateFormatter()
-//    formatter.dateStyle = .short
-//    formatter.timeStyle = .medium
-//    return formatter
-//}()
