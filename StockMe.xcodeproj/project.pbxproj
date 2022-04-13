@@ -34,6 +34,7 @@
 		3B3AD3AE28052F9C007555EB /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AD3AD28052F9C007555EB /* DBManager.swift */; };
 		3B3AD3B028053E25007555EB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B3AD3AF28053E25007555EB /* User.swift */; };
 		3B957D8A28072E5B002814FD /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B957D8928072E5B002814FD /* UserManager.swift */; };
+		3B957D8E280770A6002814FD /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B957D8D280770A6002814FD /* UIWindow+.swift */; };
 		3BBBF28B2806231C00AF439C /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BBBF28A2806231C00AF439C /* FavoriteView.swift */; };
 		4DCE26614BEB699A90EAC993 /* Pods_StockMeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 605C59D50E955AC8C197C53D /* Pods_StockMeTests.framework */; };
 		5A59CF1B408A179EEE5D7E76 /* Pods_StockMe_StockMeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E4C58C87BCBA5298EDA8233 /* Pods_StockMe_StockMeUITests.framework */; };
@@ -90,6 +91,7 @@
 		3B3AD3AD28052F9C007555EB /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		3B3AD3AF28053E25007555EB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		3B957D8928072E5B002814FD /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		3B957D8D280770A6002814FD /* UIWindow+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		3BBBF28A2806231C00AF439C /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		5E4C58C87BCBA5298EDA8233 /* Pods_StockMe_StockMeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockMe_StockMeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		605C59D50E955AC8C197C53D /* Pods_StockMeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StockMeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -250,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				3B2107B62803730000D08B28 /* Dictionary+.swift */,
+				3B957D8D280770A6002814FD /* UIWindow+.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				3B17C2422800ADC7000DB220 /* StockMe.xcdatamodeld in Sources */,
 				3B2107B028036E8A00D08B28 /* Stock.swift in Sources */,
 				3B2107BC28037B7500D08B28 /* SearchViewModel.swift in Sources */,
+				3B957D8E280770A6002814FD /* UIWindow+.swift in Sources */,
 				3B2107A4280338F200D08B28 /* dLog.swift in Sources */,
 				3B17C2A92800F24B000DB220 /* ContentView.swift in Sources */,
 				3B17C2A62800F216000DB220 /* Persistence.swift in Sources */,
