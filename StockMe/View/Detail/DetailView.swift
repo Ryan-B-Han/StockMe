@@ -26,18 +26,30 @@ struct DetailView: View {
             }
             .pickerStyle(.segmented)
             
-            List($viewModel.records, id: \.id) { record in
-                VStack(alignment: .leading) {
-                    Text(record.wrappedValue.date)
-                    Text(record.wrappedValue.volume)
-                    Text(record.wrappedValue.low + " - " + record.wrappedValue.high)
+            if $viewModel.records.count == 0 {
+                Spacer()
+                Text("Empty")
+                    .font(.largeTitle)
+                Spacer()
+                
+            } else {
+                List($viewModel.records, id: \.id) { record in
+                    VStack(alignment: .leading) {
+                        Text(record.wrappedValue.date)
+                        Text(record.wrappedValue.volume)
+                        Text(record.wrappedValue.low + " - " + record.wrappedValue.high)
+                    }
                 }
+                
             }
         }
         .navigationTitle(viewModel.stock.name)
         .onAppear {
             dLog()
             viewModel.fetch()
+        }
+        .alert(($viewModel.error.wrappedValue as? NSError)?.localizedFailureReason ?? "Error", isPresented: $viewModel.showAlert) {
+            Button("OK", role: .cancel) { }
         }
     }
 }

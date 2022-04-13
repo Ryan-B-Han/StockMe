@@ -16,19 +16,21 @@ class DetailViewModel: ObservableObject {
             fetch()
         }
     }
-    @Published var isLoading: Bool = false
+    @Published var showAlert: Bool = false
+    @Published var error: Error?
     
     init(stock: Stock) {
         self.stock = stock
     }
     
     func fetch() {
-        dLog()
-        isLoading = true
         Series.request(symbol: stock.symbol, function: state) { [weak self] error, series in
             guard let self = self else { return }
-            dLog(error, series)
-            self.isLoading = false
+            if let error = error {
+                self.showAlert = true
+                self.error = error
+            }
+            
             self.series = series
             self.records = series?.records ?? []
         }

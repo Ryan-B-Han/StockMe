@@ -16,7 +16,11 @@ class SearchViewModel: ObservableObject {
             }
             
             Stock.request(keywords: searchText) { error, stocks in
-                dLog("error = ", error, "search = ", stocks?.count)
+                if let error = error {
+                    self.showAlert = true
+                    self.error = error
+                }
+                
                 guard let stocks = stocks else {
                     self.stocks = []
                     return
@@ -28,4 +32,6 @@ class SearchViewModel: ObservableObject {
     }
     
     @Published var stocks: [Stock] = []
+    @Published var showAlert: Bool = false
+    @Published var error: Error?
 }
