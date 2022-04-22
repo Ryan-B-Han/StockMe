@@ -14,7 +14,7 @@ struct ContentView: View {
     var body: some View {
         if $userManager.current.wrappedValue == nil {
             SignInView()
-            
+
         } else {
             NavigationView {
                 SearchView()

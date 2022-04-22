@@ -13,37 +13,27 @@ struct SearchView: View {
     
     var body: some View {
         VStack {
-            TextField("Symbol", text: $viewModel.searchText)
-                .padding()
-                .textFieldStyle(.roundedBorder)
-            
             if $viewModel.stocks.count == 0 {
                 Spacer()
                 Text("Empty")
                     .font(.largeTitle)
                 Spacer()
-                
+
             } else {
-                List($viewModel.stocks, id: \.id) { stock in
+                List($viewModel.stocks, id: \.id) { $stock in
                     NavigationLink {
-                        DetailView(stock: stock.wrappedValue)
+                        DetailView(stock: stock)
                     } label: {
-                        StockView(stock: stock.wrappedValue)
+                        StockView(stock: stock)
                     }
                 }
-                
+                .listStyle(.inset)
             }
-            
         }
+        .searchable(text: $viewModel.searchText)
         .navigationTitle("Search")
         .alert(($viewModel.error.wrappedValue as? NSError)?.localizedFailureReason ?? "Error", isPresented: $viewModel.showAlert) {
             Button("OK", role: .cancel) { }
         }
-    }
-}
-
-struct SearchView_Preview: PreviewProvider {
-    static var previews: some View {
-        SearchView()
     }
 }
