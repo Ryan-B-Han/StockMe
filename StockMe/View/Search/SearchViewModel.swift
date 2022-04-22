@@ -15,7 +15,10 @@ class SearchViewModel: ObservableObject {
                 return
             }
             
+            isLoading = true
             Stock.request(keywords: searchText) { error, stocks in
+                self.isLoading = false
+                
                 if let error = error {
                     self.showAlert = true
                     self.error = error
@@ -34,4 +37,5 @@ class SearchViewModel: ObservableObject {
     @Published var stocks: [Stock] = []
     @Published var showAlert: Bool = false
     @Published var error: Error?
+    @Published var isLoading: Bool = false
 }

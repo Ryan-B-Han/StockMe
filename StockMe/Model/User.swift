@@ -18,4 +18,10 @@ final class User: Codable {
         self.email = credential.email ?? ""
         self.fullname = credential.fullName?.description ?? ""
     }
+    
+    init(id: String, fullname: String, email: String) {
+        self.id = id
+        self.fullname = fullname
+        self.email = email
+    }
 }

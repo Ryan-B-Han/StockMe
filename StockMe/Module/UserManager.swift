@@ -24,6 +24,14 @@ final class UserManager: ObservableObject {
     }
     
     func load(completion: @escaping () -> Void) {
+        guard AppConfig.current != .debug else {
+            current = User(id: "000910.b88671b50a9340cea25297092d8a0c9d.1712",
+                           fullname: "Ryan Han",
+                           email: "trick14@gmail.com")
+            completion()
+            return
+        }
+        
         do {
             guard let data = UserDefaults.standard.object(forKey: "appleIdCredential") as? Data else {
                 current = nil

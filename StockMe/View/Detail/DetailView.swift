@@ -26,12 +26,16 @@ struct DetailView: View {
             }
             .pickerStyle(.segmented)
 
-            if $viewModel.records.count == 0 {
-                Spacer()
-                Text("Empty")
-                    .font(.largeTitle)
-                Spacer()
+            if $viewModel.records.count == 0 && viewModel.isLoading == false {
+                EmptyView()
 
+            } else if viewModel.isLoading {
+                Spacer()
+                
+                VStack{}.progressView(.circular, isPresented: $viewModel.isLoading)
+                
+                Spacer()
+                
             } else {
                 List {
                     Section {
@@ -65,7 +69,7 @@ struct DetailView: View {
                     }
                 }
                 .listStyle(.plain)
-                
+//                .progressView(.circular, isPresented: $viewModel.isLoading)
             }
         }
         .navigationTitle(viewModel.stock.name)

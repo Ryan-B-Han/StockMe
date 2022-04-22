@@ -13,12 +13,16 @@ struct SearchView: View {
     
     var body: some View {
         VStack {
-            if $viewModel.stocks.count == 0 {
-                Spacer()
-                Text("Empty")
-                    .font(.largeTitle)
-                Spacer()
+            if $viewModel.stocks.count == 0 && $viewModel.isLoading.wrappedValue == false {
+                EmptyView()
 
+            } else if viewModel.isLoading {
+                Spacer()
+                
+                VStack{}.progressView(.circular, isPresented: $viewModel.isLoading)
+                
+                Spacer()
+                
             } else {
                 List($viewModel.stocks, id: \.id) { $stock in
                     NavigationLink {

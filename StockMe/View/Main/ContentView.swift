@@ -11,6 +11,7 @@ import CoreData
 struct ContentView: View {
     @ObservedObject var userManager = UserManager.shared
     
+    
     var body: some View {
         if $userManager.current.wrappedValue == nil {
             SignInView()

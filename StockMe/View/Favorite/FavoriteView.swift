@@ -14,10 +14,7 @@ struct FavoriteView: View {
     var body: some View {
         VStack {
             if $db.favorites.count == 0 {
-                Spacer()
-                Text("Empty")
-                    .font(.largeTitle)
-                Spacer()
+                EmptyView()
                 
             } else {
                 List($db.favorites, id: \.id) { fav in

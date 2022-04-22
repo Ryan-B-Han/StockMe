@@ -28,14 +28,20 @@ struct StockView: View {
                     .font(.title2)
                 Text(stock.name)
                     .font(.subheadline)
+                    .foregroundColor(Color.gray)
                 Text(stock.region + " / " + stock.timezone)
+                    .font(.caption)
+                    .foregroundColor(Color.gray)
                 Text(stock.marketOpen + " - " + stock.marketClose)
+                    .font(.caption)
+                    .foregroundColor(Color.gray)
             }
             
             Spacer()
             
             let isFavorite = db.favoritesDictionary[stock.symbol] != nil
             Image(systemName: isFavorite ? "star.fill" : "star")
+                .foregroundColor(isFavorite ? Color.yellow : Color.gray)
                 .onTapGesture {
                     guard let user = UserManager.shared.current else { return }
                     if isFavorite {
