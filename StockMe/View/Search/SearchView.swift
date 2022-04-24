@@ -13,13 +13,25 @@ struct SearchView: View {
     
     var body: some View {
         VStack {
-            if $viewModel.stocks.count == 0 && $viewModel.isLoading.wrappedValue == false {
-                EmptyView()
+            if viewModel.stocks.count == 0 && viewModel.isLoading == false {
+                Spacer()
+                
+                Text("StockMe!")
+                    .font(.title)
+                    .foregroundColor(.gray)
+                    .opacity(0.3)
+                
+                Text("Search something")
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                    .opacity(0.3)
+                
+                Spacer()
 
             } else if viewModel.isLoading {
                 Spacer()
                 
-                VStack{}.progressView(.circular, isPresented: $viewModel.isLoading)
+                VStack{}.progressView(.circular, isPresented: viewModel.isLoading)
                 
                 Spacer()
                 
@@ -36,7 +48,7 @@ struct SearchView: View {
         }
         .searchable(text: $viewModel.searchText)
         .navigationTitle("Search")
-        .alert(($viewModel.error.wrappedValue as? NSError)?.localizedFailureReason ?? "Error", isPresented: $viewModel.showAlert) {
+        .alert((viewModel.error as? NSError)?.localizedFailureReason ?? "Error", isPresented: $viewModel.showAlert) {
             Button("OK", role: .cancel) { }
         }
     }

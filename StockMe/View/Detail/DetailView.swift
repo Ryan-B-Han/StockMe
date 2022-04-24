@@ -32,7 +32,7 @@ struct DetailView: View {
             } else if viewModel.isLoading {
                 Spacer()
                 
-                VStack{}.progressView(.circular, isPresented: $viewModel.isLoading)
+                VStack{}.progressView(.circular, isPresented: viewModel.isLoading)
                 
                 Spacer()
                 
@@ -51,8 +51,6 @@ struct DetailView: View {
                             }
                             .listRowBackground(index%2==0 ? Color.gray.opacity(0.1) : Color.white)
                         }
-                        .onMove(perform: moveItem)
-                        .onDelete(perform: deleteItem)
                         
                     } header: {
                         HStack {
@@ -69,29 +67,14 @@ struct DetailView: View {
                     }
                 }
                 .listStyle(.plain)
-//                .progressView(.circular, isPresented: $viewModel.isLoading)
             }
         }
         .navigationTitle(viewModel.stock.name)
-        .toolbar(content: {
-            EditButton()
-        })
         .onAppear {
             viewModel.fetch()
         }
         .alert(($viewModel.error.wrappedValue as? NSError)?.localizedFailureReason ?? "Error", isPresented: $viewModel.showAlert) {
             Button("OK", role: .cancel) { }
         }
-    }
-    
-    private func moveItem(at: IndexSet, to: Int) {
-        guard let idx = at.first else { return }
-                
-        let item = viewModel.records.remove(at: idx)
-        viewModel.records.insert(item, at: to)
-    }
-    
-    private func deleteItem(at: IndexSet) {
-        viewModel.records.remove(atOffsets: at)
     }
 }

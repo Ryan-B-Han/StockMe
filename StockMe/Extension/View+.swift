@@ -10,11 +10,11 @@ import SwiftUI
 extension View {
 
     /// Sets the style for lists within this view.
-    public func progressView<S>(_ style: S, isPresented: Binding<Bool>) -> some View where S : ProgressViewStyle {
+    public func progressView<S>(_ style: S, isPresented: Bool) -> some View where S : ProgressViewStyle {
         return ZStack {
             self
             
-            if isPresented.wrappedValue {
+            if isPresented {
                 ProgressView().progressViewStyle(style)
             }
         }

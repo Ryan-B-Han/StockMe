@@ -17,17 +17,34 @@ struct FavoriteView: View {
                 EmptyView()
                 
             } else {
-                List($db.favorites, id: \.id) { fav in
-                    let stock = Stock(favorite: fav.wrappedValue)
-                    NavigationLink {
-                        DetailView(stock: stock)
-                    } label: {
-                        StockView(stock: stock)
+                List {
+                    ForEach($db.favorites) { fav in
+                        let stock = Stock(favorite: fav.wrappedValue)
+                        NavigationLink {
+                            DetailView(stock: stock)
+                        } label: {
+                            StockView(stock: stock)
+                        }
                     }
+                    .onMove(perform: moveItem)
+                    .onDelete(perform: deleteItem)
                 }
-                
             }
         }
         .navigationTitle("Favorite")
+        .toolbar {
+            EditButton()
+        }
+    }
+    
+    private func moveItem(at: IndexSet, to: Int) {
+        guard let idx = at.first else { return }
+                
+        let item = db.favorites.remove(at: idx)
+        db.favorites.insert(item, at: to)
+    }
+    
+    private func deleteItem(at: IndexSet) {
+        db.favorites.remove(atOffsets: at)
     }
 }
