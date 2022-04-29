@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class SearchViewModel: ObservableObject {
+final class SearchViewModel: ObservableObject {
     var searchText: String = "" {
         didSet {
             guard searchText.count > 0 else {

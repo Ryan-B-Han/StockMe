@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class DetailViewModel: ObservableObject {
+final class DetailViewModel: ObservableObject {
     var stock: Stock
     private var series: Series?
     @Published var records: [Record] = []

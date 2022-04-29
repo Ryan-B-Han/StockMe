@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class StockViewModel: ObservableObject {
+final class StockViewModel: ObservableObject {
     var stock: Stock
     
     init(stock: Stock) {

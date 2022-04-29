@@ -46,7 +46,7 @@ final class DBManager: ObservableObject {
         save()
     }
     
-    func save() {
+    private func save() {
         do {
             try PersistenceController.shared.container.viewContext.save()
         } catch {

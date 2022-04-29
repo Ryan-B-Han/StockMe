@@ -8,7 +8,7 @@
 import AuthenticationServices
 import SwiftUI
 
-final class User: Codable {
+struct User: Codable {
     let id: String
     let fullname: String
     let email: String

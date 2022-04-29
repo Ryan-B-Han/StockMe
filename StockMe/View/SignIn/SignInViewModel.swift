@@ -8,7 +8,7 @@
 import Foundation
 import AuthenticationServices
 
-class SignInViewModel: NSObject, ObservableObject {
+final class SignInViewModel: NSObject, ObservableObject {
     func requestAppleSignIn() {
         let request = ASAuthorizationAppleIDProvider().createRequest()
         request.requestedScopes = [.fullName, .email]
